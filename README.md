@@ -19,6 +19,6 @@ This is a simple .net web-form application. Run the **kioskcontact.aspx**page to
 It will create/update contact based on provided information and set the captured image as the contact's avtar.
 
 ## XConnect.Demo.Contacts.Web
-This is a sitecore site having one item/page "CreateContact". You can access the page/item by appending **/CreateContact** in your website root. 
+This is a sitecore site having one item/page **CreateContact**. You can access the page/item by appending **/CreateContact** in your website root. 
 f.g. http://sc9.sc/**createcontact**.  
-The sitecore items are available in the sitecore package #### xConnect Demo Sitecore-1.0.0.0.zip ####.
+The sitecore items are available in the sitecore package **xConnect Demo Sitecore-1.0.0.0.zip**.
