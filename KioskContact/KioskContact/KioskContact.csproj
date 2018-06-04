@@ -189,11 +189,9 @@
     <Content Include="Assets\Sitecore.XConnect.dll" />
     <Content Include="Assets\Sitecore.XConnect.Search.dll" />
     <Content Include="Assets\Sitecore.Xdb.Common.Web.dll" />
-    <Content Include="Canvas.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="CS.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -204,7 +202,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ImageService.asmx" />
     <Content Include="images\alok.jpg" />
     <Content Include="images\camera-spinner.gif" />
     <Content Include="images\chirayu.jpg" />
@@ -267,20 +264,6 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Canvas.aspx.cs">
-      <DependentUpon>Canvas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Canvas.aspx.designer.cs">
-      <DependentUpon>Canvas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CS.aspx.cs">
-      <DependentUpon>CS.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CS.aspx.designer.cs">
-      <DependentUpon>CS.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -290,10 +273,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="ImageService.asmx.cs">
-      <DependentUpon>ImageService.asmx</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="KioskContact.aspx.cs">
       <DependentUpon>KioskContact.aspx</DependentUpon>
