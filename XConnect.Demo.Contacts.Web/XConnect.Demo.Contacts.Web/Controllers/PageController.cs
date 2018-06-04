@@ -1,4 +1,4 @@
-﻿using Glass.Mapper.Sc;
+﻿using Glass.Mapper;
 //using Sitecore.Analytics;
 //using Sitecore.Analytics.Model.Entities;
 //using Sitecore.Analytics.Tracking;
