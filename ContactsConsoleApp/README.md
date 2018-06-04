@@ -15,15 +15,15 @@ Run the application and you will be asked to enter the email address of the cont
 2. Open ContactsConsoleApp.sln
 3. Open ./Program.cs file and make the following changes in MainAsync() method.
     3.1 Make sure you have valid Certificate Thumbprint at line number 30/31 at value provided for FindValue.
-        ```csharp
+    ```csharp
         CertificateWebRequestHandlerModifierOptions options =
            CertificateWebRequestHandlerModifierOptions.Parse("StoreName=My;StoreLocation=LocalMachine;FindType=FindByThumbprint;FindValue=587d948806e57cf511b37a447a2453a02dfd3686");
-        ```
+    ```
     3.2 Make sure you have valid urls of the xConnect site at line number 39,40,41.
-       ```csharp
+    ```csharp
    var collectionClient = new CollectionWebApiClient(new Uri("https://sc9.xconnect/odata"), clientModifiers, new[] { certificateModifier });
             var searchClient = new SearchWebApiClient(new Uri("https://sc9.xconnect/odata"), clientModifiers, new[] { certificateModifier });
             var configurationClient = new ConfigurationWebApiClient(new Uri("https://sc9.xconnect/configuration"), clientModifiers, new[] { certificateModifier });
-            ```
+    ```
 4. Run the console application.
 5. You will be asked to enter correct/existing contact's email address. Once provided it will fetch the details of that contact.

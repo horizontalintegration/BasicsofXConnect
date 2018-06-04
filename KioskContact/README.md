@@ -17,16 +17,16 @@ This page will create/update the contacts on the form submission. Method **creat
 3. Open ./KioskContact.aspx.cs file and make the following changes in createUpdateContactDemo() method.
 	3.1 Make sure, you have updated the goal and channel id according to your sitecore items.
     3.2 Make sure you have valid Certificate Thumbprint at line number 62 at value provided for FindValue.
-        ```csharp
+    ```csharp
          CertificateWebRequestHandlerModifierOptions options =
                CertificateWebRequestHandlerModifierOptions.Parse("StoreName=My;StoreLocation=LocalMachine;FindType=FindByThumbprint;FindValue=587d948806e57cf511b37a447a2453a02dfd3686");
-        ```
+    ```
     3.3 Make sure you have valid urls of the xConnect site at line number 72,73,74.
-       ```csharp
+    ```csharp
    var collectionClient = new CollectionWebApiClient(new Uri("https://sc9.xconnect/odata"), clientModifiers, new[] { certificateModifier });
             var searchClient = new SearchWebApiClient(new Uri("https://sc9.xconnect/odata"), clientModifiers, new[] { certificateModifier });
             var configurationClient = new ConfigurationWebApiClient(new Uri("https://sc9.xconnect/configuration"), clientModifiers, new[] { certificateModifier });
-            ```
+    ```
 4. Modify *KioskContact/KioskContact/Properties/PublishProfiles/FolderProfile.pubxml* file as per local environment. 
 5. Perform the Visual Studio Publish
 6. Make the host entry of the domain name.
