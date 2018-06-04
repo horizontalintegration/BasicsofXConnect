@@ -52,79 +52,7 @@ namespace KioskContact
                 return "failure";
             }
         }
-        //Blog Code
-        public void createUpdateContact()
-        {
-            //Certificate
-            CertificateWebRequestHandlerModifierOptions options =
-            CertificateWebRequestHandlerModifierOptions.Parse("StoreName=My;StoreLocation=LocalMachine;FindType=FindByThumbprint;FindValue=587d948806e57cf511b37a447a2453a02dfd3686");
-            var certificateModifier = new CertificateWebRequestHandlerModifier(options);
-
-            //Model - xConnect Client Configuration
-            List<IHttpClientModifier> clientModifiers = new List<IHttpClientModifier>();
-            var timeoutClientModifier = new TimeoutHttpClientModifier(new TimeSpan(0, 0, 20));
-            clientModifiers.Add(timeoutClientModifier);
-
-            // This overload takes three client end points - collection, search, and configuration
-            var collectionClient = new CollectionWebApiClient(new Uri("https://sc9.xconnect/odata"), clientModifiers, new[] { certificateModifier });
-            var searchClient = new SearchWebApiClient(new Uri("https://sc9.xconnect/odata"), clientModifiers, new[] { certificateModifier });
-            var configurationClient = new ConfigurationWebApiClient(new Uri("https://sc9.xconnect/configuration"), clientModifiers, new[] { certificateModifier });
-
-            var config = new XConnectClientConfiguration(
-                new XdbRuntimeModel(CollectionModel.Model), collectionClient, searchClient, configurationClient);
-            //initialize the configuration
-            config.Initialize();
-
-            //create the xConnect Client
-            using (Sitecore.XConnect.Client.XConnectClient client = new XConnectClient(config))
-            {
-                // Identifier
-                var identifier = new ContactIdentifier[]
-                {
-                    new ContactIdentifier("HIxConnect", txtEmailAddress.Text, ContactIdentifierType.Known)
-                };
-
-                //Contact & Facets                
-                // Create a new contact with the identifier
-                Contact knownContact = new Contact(identifier);
-                client.AddContact(knownContact);
-
-                //Facets
-                #region Personal Information Facet
-                //Persona information facet
-                PersonalInformation personalInfoFacet = new PersonalInformation();
-                personalInfoFacet.Title = ddTitle.SelectedValue;
-                personalInfoFacet.FirstName = "Alok";
-                personalInfoFacet.MiddleName = "S";
-                personalInfoFacet.LastName = "KaduDeshmukh";
-                personalInfoFacet.PreferredLanguage = "en";
-                personalInfoFacet.Gender = "Male";
-                personalInfoFacet.JobTitle = "Sitecore Web Developer";
-                client.SetFacet<PersonalInformation>(knownContact, PersonalInformation.DefaultFacetKey, personalInfoFacet);
-                #endregion
-                #region EmailAddress Facet
-                EmailAddressList emails = new EmailAddressList(new EmailAddress("alok.kadudeshmukh4@gmail.com", true), EmailAddressList.DefaultFacetKey);
-                //OR the following code
-                //var emails = existingContact.GetFacet<EmailAddressList>(EmailAddressList.DefaultFacetKey);
-                //emails.PreferredEmail = new EmailAddress("alok.kadudeshmukh@gmail.com", true);
-                client.SetFacet<EmailAddressList>(knownContact, EmailAddressList.DefaultFacetKey, emails);
-                #endregion
-
-                //Interaction
-                var offlineGoal = Guid.Parse("A9948719-E6E4-46D2-909B-3680E724ECE9");//offline goal - KioskSubmission goal
-                var channelId = Guid.Parse("3FC61BB8-0D9F-48C7-9BBD-D739DCBBE032"); // /sitecore/system/Marketing Control Panel/Taxonomies/Channel/Offline/Store/Enter store - offline enter storl channel
-                //Create a new interaction for that contact
-                Interaction interaction = new Interaction(knownContact, InteractionInitiator.Contact, channelId, "");
-                // Add events - all interactions must have at least one event
-                var xConnectEvent = new Goal(offlineGoal, DateTime.UtcNow);
-                interaction.Events.Add(xConnectEvent);
-                //Add interaction to client
-                client.AddInteraction(interaction);
-
-                client.Submit();
-            }
-        }
-        //Demo Code
+		//Demo Code
         public void createUpdateContactDemo()
         {
             var offlineGoal = Guid.Parse("A9948719-E6E4-46D2-909B-3680E724ECE9");//offline goal - KioskSubmission goal
@@ -371,8 +299,7 @@ namespace KioskContact
 
         protected void btnCreate_Click(object sender, EventArgs e)
         {
-            createUpdateContactDemo();
-            //createUpdateContact();
+            createUpdateContactDemo();            
         }
 
         protected void btn_capture_Click(object sender, EventArgs e)
