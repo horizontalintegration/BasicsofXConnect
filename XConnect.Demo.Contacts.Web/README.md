@@ -30,7 +30,7 @@ This item has the controller rendering which calls the action method **CreateCon
     ```
 5. Modify *XConnect.Demo.Contacts.Web/XConnect.Demo.Contacts.Web/Properties/PublishProfiles/FolderProfile.pubxml* file as per local environment. Recommended Path is the Sietcore 9.0 webroot folder.
 6. Perform the Visual Studio Publish
-7. Install Sitecore Package avaialble at https://github.com/horizontalintegration/BasicsofXConnect/blob/master/xConnect%20Demo%20Sitecore-1.0.0.0.zip
+7. Install Sitecore Package avaialble at https://github.com/horizontalintegration/BasicsofXConnect/blob/master/Sitecore%20Packages/xConnect%20Demo%20Sitecore-1.0.0.0.zip
 8. After installing the package, Publish following items:
     7.1 */sitecore/layout/Layouts/ViewLayout*
     7.2 */sitecore/layout/Renderings/CreateContact*
